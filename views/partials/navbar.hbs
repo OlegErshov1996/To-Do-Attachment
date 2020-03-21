@@ -2,8 +2,17 @@
     <div class="nav-wrapper">
         <a href="#" class="brand-logo">ToDo</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="/">ToDo</a></li>
-            <li><a href="/create">Create</a></li>
+            {{#if isIndex}}
+                <li class="active"><a href="/">ToDo</a></li>
+            {{else}}
+                <li><a href="/">ToDo</a></li>
+            {{/if}}
+
+            {{#if isCreate}}
+                <li class="active"><a href="/create">Create</a></li>
+            {{else}}
+                <li><a href="/create">Create</a></li>
+            {{/if}}
         </ul>
     </div>
 </nav>

@@ -1,17 +1,17 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const expressHandlebars = require('express-handlebars');
+const expresshbs = require('express-handlebars');
 const todoRoutes = require('./routes/todo');
 
 const PORT = process.env.PORT || 3000;
 const app = express();
-const handlebars = expressHandlebars.create({
+const hbs = expresshbs.create({
     defaultLayout: 'main',
-    extname: 'handlebars'
+    extname: 'hbs'
 });
 
-app.engine('handlebars', handlebars.engine);
-app.set('view engine', 'handlebars');
+app.engine('hbs', hbs.engine);
+app.set('view engine', 'hbs');
 app.set('views', 'views');
 
 app.use(todoRoutes);
@@ -29,5 +29,9 @@ async function start() {
         console.log(e);
     }
 }
+
+// app.get('/', function(req, res){
+//     res.render("index");
+// });
 
 start();
