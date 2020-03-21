@@ -1,1 +1,22 @@
 <h2>Страница приложения</h2>
+
+{{#if todos.length}}
+    <ul>
+    {{#each todos}}
+    <li>
+        <label>
+            {{#if completed}}
+                <input type="checkbox">
+                <span>{{title}}</span>
+            {{else}}
+                <input type="checkbox">
+                <span>{{title}}</span>
+            {{/if}}
+            <button class="btn btn-small">Сохранить</button>
+        </label>
+    </li>
+    {{/each}}
+    </ul>>
+{{else}}
+<p>Нет ToDo</p>
+{{/if}}
