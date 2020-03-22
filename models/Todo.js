@@ -10,4 +10,4 @@ const schema = new Schema({
     }
 });
 
-module.exports = model('todoRender', schema);
+module.exports = model('Todo', schema);
