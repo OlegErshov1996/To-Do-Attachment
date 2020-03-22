@@ -2,21 +2,24 @@
 
 {{#if todos.length}}
     <ul>
-    {{#each todos}}
-    <li>
-        <label>
-            {{#if completed}}
-                <input type="checkbox">
-                <span>{{title}}</span>
-            {{else}}
-                <input type="checkbox">
-                <span>{{title}}</span>
-            {{/if}}
-            <button class="btn btn-small">Сохранить</button>
-        </label>
-    </li>
-    {{/each}}
-    </ul>>
+        {{#each todos}}
+            <li class="todo">
+                <form action="/complete" method="POST">
+                    <label>
+                        {{#if completed}}
+                            <input type="checkbox" checked name="completed">
+                            <span class="completed">{{title}}</span>
+                        {{else}}
+                            <input type="checkbox" name="completed">
+                            <span>{{title}}</span>
+                        {{/if}}
+                        <input type="hidden" value="{{_id}}" name="id">
+                        <button class="btn btn-small" type="submit">Сохранить</button>
+                    </label>
+                </form>
+            </li>
+        {{/each}}
+    </ul>
 {{else}}
-<p>Нет ToDo</p>
+    <p>Нет запланированных дел</p>
 {{/if}}

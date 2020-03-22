@@ -1,12 +1,12 @@
-const { Router } = require('express');
+const {Router} = require('express');
 const Todo = require('../models/Todo');
 const router = Router();
 
 router.get('/', async (req, res) => {
-    const todos = await Todo.find({});
+    const todos = await Todo.find({})
 
     res.render('index', {
-        title: 'ToDo List',
+        title: 'Список дел',
         isIndex: true,
         todos
     })
@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
 
 router.get('/create', (req, res) => {
     res.render('create', {
-        title: 'Создать ToDo',
+        title: 'Создать дело',
         isCreate: true
     })
 });
@@ -23,6 +23,7 @@ router.post('/create', async (req, res) => {
     const todo = new Todo({
         title: req.body.title
     })
+
     await todo.save();
     res.redirect('/')
 });
